@@ -12,6 +12,12 @@
   force = true
 
 [[redirects]]
+  from = "/portfolio/*"
+  to = "/not-found"
+  status = 404
+  force = true
+
+[[redirects]]
   from = "/supabase/*"
   to = "/not-found"
   status = 404

@@ -3,11 +3,11 @@
 Plain HTML, CSS and vanilla JS. No frameworks, no build step, no npm. Data lives in
 Supabase (Postgres), loaded in the browser via the supabase-js CDN build (pinned 2.45.4). Opens from
 `index.html`; deploys by uploading the folder. Relative paths only.
-`design-system/`, `supabase/`, `.claude/`, `.mcp.json` and `CLAUDE.md` don't need uploading
+`design-system/`, `supabase/`, `portfolio/`, `.claude/`, `.mcp.json` and `CLAUDE.md` don't need uploading
 (they're tooling and notes, not part of the site).
-Code: GitHub, private repo PrathameshS1999/sole-society (branch main). Hosting: Netlify (https://sole-society-shoes.netlify.app),
+Code: GitHub, public repo PrathameshS1999/sole-society (branch main). Hosting: Netlify (https://sole-society-shoes.netlify.app),
 deploying that repo on every push (netlify.toml: no build, publish the repo root, and
-404s for design-system/, supabase/, notes and dotfiles). To publish a change: commit and
+404s for design-system/, supabase/, portfolio/, notes and dotfiles). To publish a change: commit and
 `git push`. Netlify rewrites links to pretty URLs (/account), so main.js
 normalises page names with `pageOf()`; keep comparisons going through it. `sole-society-netlify.zip` (git-ignored) is only for manual Netlify Drop uploads.
 After a new live URL, add it in Supabase → Authentication → URL Configuration.
@@ -102,3 +102,7 @@ The design system doesn't specify these, so they're placeholders in the data:
 ## Real details
 - Owner link: https://prathameshshinde.com (demo notice and footer).
 - Per the design README, products, brands and reviews (tagged "Sample review") are demo data.
+
+## Portfolio
+`portfolio/`: README.md (links, write-up), architecture.svg (animated) + .png, and
+screenshots/ (13 JPGs). Retake screenshots after visual changes so they stay accurate.
