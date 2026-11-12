@@ -5,9 +5,10 @@ Supabase (Postgres), loaded in the browser via the supabase-js CDN build (pinned
 `index.html`; deploys by uploading the folder. Relative paths only.
 `design-system/`, `supabase/`, `.claude/`, `.mcp.json` and `CLAUDE.md` don't need uploading
 (they're tooling and notes, not part of the site).
-Hosting: Netlify. `sole-society-netlify.zip` is the upload package (pages, css, js, images
-only); rebuild it after changes with:
-`zip -r -X sole-society-netlify.zip *.html css js images -x '*.DS_Store'`
+Code: GitHub, private repo PrathameshS1999/sole-society (branch main). Hosting: Netlify,
+deploying that repo on every push (netlify.toml: no build, publish the repo root, and
+404s for design-system/, supabase/, notes and dotfiles). To publish a change: commit and
+`git push`. `sole-society-netlify.zip` (git-ignored) is only for manual Netlify Drop uploads.
 After a new live URL, add it in Supabase → Authentication → URL Configuration.
 
 ## Source of truth

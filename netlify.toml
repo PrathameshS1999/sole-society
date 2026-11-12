@@ -1,0 +1,54 @@
+# Netlify settings for Sole Society (static site: no build step).
+[build]
+  publish = "."
+  command = ""
+
+# The repo also holds notes, SQL and the design system. They aren't part of the
+# shop, so the live site answers "not found" for them.
+[[redirects]]
+  from = "/design-system/*"
+  to = "/not-found"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/supabase/*"
+  to = "/not-found"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/.claude/*"
+  to = "/not-found"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/CLAUDE.md"
+  to = "/not-found"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/.mcp.json"
+  to = "/not-found"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/.gitignore"
+  to = "/not-found"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/netlify.toml"
+  to = "/not-found"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/images/CREDITS.md"
+  to = "/not-found"
+  status = 404
+  force = true
