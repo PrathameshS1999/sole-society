@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Create an account | Sole Society</title>
+<meta name="description" content="Create a Sole Society account to save addresses, keep a wishlist and see your order history.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css?v=20261111c">
+</head>
+<body>
+<!-- ===== SHARED NAV: identical on every page. Change it on all pages. ===== -->
+<a class="skip" href="#main">Skip to content</a>
+<div class="demo"><div class="wrap"><span>Demo store. No real orders are taken and payments run in test mode.</span><a href="https://prathameshshinde.com">Back to prathameshshinde.com</a></div></div>
+<div class="strip"><div class="wrap"><span><b>Free delivery in Ireland</b> on orders over €50</span><span><b>2–3 working days</b> to your door</span><span><b>Free returns</b> within 30 days</span></div></div>
+<header class="hdr"><div class="wrap hdr-in">
+ <a class="logo" href="index.html">Sole Society<small>Shoes for the whole family</small></a>
+ <form class="search" role="search" action="search.html" method="get" name="search">
+  <button class="go" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><span class="sr-only">Search</span></button>
+  <label class="sr-only" for="q">Search shoes</label>
+  <input id="q" type="search" name="q" placeholder="Search shoes, brands or sizes" autocomplete="off" aria-controls="sugg" aria-expanded="false">
+  <div class="sugg" id="sugg" hidden></div>
+ </form>
+ <div class="acts">
+  <a class="act" href="account.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span class="t" data-account-label>Sign in</span></a>
+  <a class="act" href="wishlist.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span class="t">Wishlist</span><span class="count" data-wish-count hidden>0</span><span class="sr-only"> saved</span></a>
+  <a class="act" href="basket.html" data-open-basket aria-controls="basket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="t">Basket</span><span class="count" data-basket-count hidden>0</span><span class="sr-only"> items</span></a>
+ </div>
+</div></header>
+<nav class="dept" aria-label="Departments"><div class="wrap"><a href="women.html">Women</a><a href="men.html">Men</a><a href="kids.html">Kids</a><a href="school-shoes.html">School shoes</a><a href="boots.html">Boots</a><a href="trainers.html">Trainers</a><a href="socks.html">Socks</a><a class="sale" href="sale.html">Sale</a></div></nav>
+<!-- ===== /SHARED NAV ===== -->
+<main id="main">
+<section class="wrap page auth-page" aria-labelledby="page-title">
+ <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / <a href="account.html">Your account</a> / Create an account</nav>
+ <div class="lh"><h1 id="page-title" tabindex="-1">Create an account</h1></div>
+ <p class="note" data-no-db hidden>Accounts need the shop database, which isn't connected yet. See <code>supabase/README.md</code>.</p>
+ <p class="form-msg" data-auth-msg role="status" hidden></p>
+ <div class="auth" data-register-wrap hidden>
+  <form class="form" name="register" action="register.html" method="post" data-register>
+   <div class="field full"><label for="rg-name">Full name</label><input id="rg-name" type="text" name="full_name" autocomplete="name" required></div>
+   <div class="field full"><label for="rg-email">Email</label><input id="rg-email" type="email" name="email" autocomplete="email" required></div>
+   <div class="field full"><label for="rg-password">Password (at least 8 characters)</label><input id="rg-password" type="password" name="password" autocomplete="new-password" required minlength="8"></div>
+   <button class="btn btn-action" type="submit">Create account</button>
+   <p class="auth-switch">Already have an account? <a href="account.html">Sign in</a></p>
+  </form>
+ </div>
+ <p class="note" data-already-in hidden>You're signed in. <a class="lnk" href="account.html">Go to your account</a></p>
+</section>
+</main>
+<!-- ===== SHARED FOOTER: identical on every page. Change it on all pages. ===== -->
+<footer class="ftr"><div class="wrap ftr-in">
+ <div><h2>Help</h2><ul><li><a href="help.html#contact">Contact us</a></li><li><a href="help.html#faq">FAQ</a></li><li><a href="help.html#delivery">Delivery</a></li><li><a href="help.html#returns">Returns</a></li><li><a href="help.html#size-guide">Size guide</a></li></ul></div>
+ <div><h2>Shop</h2><ul><li><a href="women.html">Women</a></li><li><a href="men.html">Men</a></li><li><a href="kids.html">Kids</a></li><li><a href="school-shoes.html">School shoes</a></li><li><a href="sale.html">Sale</a></li></ul></div>
+ <div><h2>Your account</h2><ul><li><a href="account.html">Sign in or register</a></li><li><a href="account.html#orders">Order history</a></li><li><a href="account.html#addresses">Saved addresses</a></li><li><a href="wishlist.html">Wishlist</a></li></ul></div>
+ <div><h2>About</h2><ul><li><a href="about.html">About this demo</a></li><li><a href="about.html#privacy">Privacy</a></li><li><a href="about.html#terms">Terms</a></li><li><a href="about.html#cookies">Cookies</a></li></ul></div>
+</div><div class="wrap ftr-b"><span>© 2026 Sole Society. Demo store, no real orders. Built by Prathamesh Shinde · <a href="https://prathameshshinde.com">prathameshshinde.com</a></span><span class="pay"><span class="pm">VISA</span><span class="pm">Mastercard</span><span class="pm">Apple Pay</span><span class="pm">Google Pay</span></span></div></footer>
+
+<div class="scrim" data-close-basket hidden></div>
+<aside class="drawer" id="basket" role="dialog" aria-modal="true" aria-labelledby="basket-title" hidden>
+ <form name="basket" action="checkout.html" method="get" data-basket-form>
+  <div class="dr-h"><h2 id="basket-title">Your basket (<span data-basket-count>0</span>)</h2><button type="button" data-close-basket aria-label="Close basket">×</button></div>
+  <div class="dr-free" data-free hidden>You've got free delivery.</div>
+  <div data-lines></div>
+  <p class="empty" data-empty>Your basket is empty.</p>
+  <div class="dr-f" data-totals>
+   <div class="tot"><span>Subtotal</span><b data-subtotal>€0.00</b></div>
+   <div class="tot"><span>Delivery</span><b data-delivery>Free</b></div>
+   <div class="tot big"><span>Total</span><b data-total>€0.00</b></div>
+   <button class="btn btn-action" type="submit">Checkout</button>
+   <a class="btn btn-ghost" href="basket.html">View basket</a>
+   <small>Test mode: no card is charged.</small>
+  </div>
+ </form>
+</aside>
+<!-- ===== /SHARED FOOTER ===== -->
+<script src="js/config.js?v=20261111c"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="js/products.js?v=20261111c"></script>
+<script src="js/main.js?v=20261111c"></script>
+</body>
+</html>

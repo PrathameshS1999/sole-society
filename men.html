@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Men&#x27;s shoes | Sole Society</title>
+<meta name="description" content="Shop men&#x27;s shoes, boots, trainers and socks at Sole Society. Free delivery in Ireland on orders over €50 and free returns within 30 days.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css?v=20261111c">
+</head>
+<body>
+<!-- ===== SHARED NAV: identical on every page. Change it on all pages. ===== -->
+<a class="skip" href="#main">Skip to content</a>
+<div class="demo"><div class="wrap"><span>Demo store. No real orders are taken and payments run in test mode.</span><a href="https://prathameshshinde.com">Back to prathameshshinde.com</a></div></div>
+<div class="strip"><div class="wrap"><span><b>Free delivery in Ireland</b> on orders over €50</span><span><b>2–3 working days</b> to your door</span><span><b>Free returns</b> within 30 days</span></div></div>
+<header class="hdr"><div class="wrap hdr-in">
+ <a class="logo" href="index.html">Sole Society<small>Shoes for the whole family</small></a>
+ <form class="search" role="search" action="search.html" method="get" name="search">
+  <button class="go" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><span class="sr-only">Search</span></button>
+  <label class="sr-only" for="q">Search shoes</label>
+  <input id="q" type="search" name="q" placeholder="Search shoes, brands or sizes" autocomplete="off" aria-controls="sugg" aria-expanded="false">
+  <div class="sugg" id="sugg" hidden></div>
+ </form>
+ <div class="acts">
+  <a class="act" href="account.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span class="t" data-account-label>Sign in</span></a>
+  <a class="act" href="wishlist.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span class="t">Wishlist</span><span class="count" data-wish-count hidden>0</span><span class="sr-only"> saved</span></a>
+  <a class="act" href="basket.html" data-open-basket aria-controls="basket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="t">Basket</span><span class="count" data-basket-count hidden>0</span><span class="sr-only"> items</span></a>
+ </div>
+</div></header>
+<nav class="dept" aria-label="Departments"><div class="wrap"><a href="women.html">Women</a><a href="men.html">Men</a><a href="kids.html">Kids</a><a href="school-shoes.html">School shoes</a><a href="boots.html">Boots</a><a href="trainers.html">Trainers</a><a href="socks.html">Socks</a><a class="sale" href="sale.html">Sale</a></div></nav>
+<!-- ===== /SHARED NAV ===== -->
+<main id="main">
+<section class="wrap listing" aria-labelledby="listing-title" data-listing>
+ <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / Men</nav>
+ <div class="lh"><h1 id="listing-title">Men</h1><span data-result-count></span></div>
+ 
+ <div class="lay">
+  <form class="filters" id="filters" name="filters" action="men.html" method="get" aria-label="Filters">
+   <fieldset class="fgroup"><legend>Department</legend><label class="chk"><input type="checkbox" name="department" value="women" data-label="Women"><i></i>Women<em data-count></em></label><label class="chk"><input type="checkbox" name="department" value="men" data-label="Men" checked><i></i>Men<em data-count></em></label><label class="chk"><input type="checkbox" name="department" value="kids" data-label="Kids"><i></i>Kids<em data-count></em></label></fieldset>
+   <fieldset class="fgroup"><legend>UK size <span data-size-count></span></legend><div class="szg"><label><input type="checkbox" name="size" value="3" data-label="UK 3"><b>3</b></label><label><input type="checkbox" name="size" value="4" data-label="UK 4"><b>4</b></label><label><input type="checkbox" name="size" value="5" data-label="UK 5"><b>5</b></label><label><input type="checkbox" name="size" value="6" data-label="UK 6"><b>6</b></label><label><input type="checkbox" name="size" value="7" data-label="UK 7"><b>7</b></label><label><input type="checkbox" name="size" value="8" data-label="UK 8"><b>8</b></label><label><input type="checkbox" name="size" value="9" data-label="UK 9"><b>9</b></label><label><input type="checkbox" name="size" value="10" data-label="UK 10"><b>10</b></label><label><input type="checkbox" name="size" value="11" data-label="UK 11"><b>11</b></label><label><input type="checkbox" name="size" value="12" data-label="UK 12"><b>12</b></label></div></fieldset>
+   <fieldset class="fgroup"><legend>Price</legend><div class="price-in"><span class="box">€<input type="number" name="price_min" min="0" step="1" inputmode="numeric" placeholder="0" aria-label="Minimum price in euro"></span><span>to</span><span class="box">€<input type="number" name="price_max" min="0" step="1" inputmode="numeric" placeholder="150" aria-label="Maximum price in euro"></span></div></fieldset>
+   <fieldset class="fgroup"><legend>Brand</legend><div data-brands></div></fieldset>
+   <fieldset class="fgroup"><legend>Colour</legend><div class="cols"><label><input type="checkbox" name="colour" value="black" data-label="Black"><i style="background:#1E1E1E"></i><span class="sr-only">Black</span></label><label><input type="checkbox" name="colour" value="brown" data-label="Brown"><i style="background:#6B4226"></i><span class="sr-only">Brown</span></label><label><input type="checkbox" name="colour" value="stone" data-label="Stone"><i style="background:#C7C2BA"></i><span class="sr-only">Stone</span></label><label><input type="checkbox" name="colour" value="olive" data-label="Olive"><i style="background:#5E6B3A"></i><span class="sr-only">Olive</span></label><label><input type="checkbox" name="colour" value="navy" data-label="Navy"><i style="background:#2F3E5C"></i><span class="sr-only">Navy</span></label><label><input type="checkbox" name="colour" value="red" data-label="Red"><i style="background:#B23A3A"></i><span class="sr-only">Red</span></label><label><input type="checkbox" name="colour" value="pink" data-label="Pink"><i style="background:#E25A8C"></i><span class="sr-only">Pink</span></label><label><input type="checkbox" name="colour" value="orange" data-label="Orange"><i style="background:#D9873B"></i><span class="sr-only">Orange</span></label></div></fieldset>
+   <fieldset class="fgroup"><legend>Type</legend><label class="chk"><input type="checkbox" name="type" value="boots" data-label="Boots"><i></i>Boots<em data-count></em></label><label class="chk"><input type="checkbox" name="type" value="trainers" data-label="Trainers"><i></i>Trainers<em data-count></em></label><label class="chk"><input type="checkbox" name="type" value="school" data-label="School shoes"><i></i>School shoes<em data-count></em></label><label class="chk"><input type="checkbox" name="type" value="formal" data-label="Formal"><i></i>Formal<em data-count></em></label><label class="chk"><input type="checkbox" name="type" value="socks" data-label="Socks"><i></i>Socks<em data-count></em></label></fieldset>
+   <fieldset class="fgroup"><legend>Width</legend><label class="chk"><input type="checkbox" name="width" value="Standard" data-label="Standard"><i></i>Standard<em data-count></em></label><label class="chk"><input type="checkbox" name="width" value="Wide (E fit)" data-label="Wide (E fit)"><i></i>Wide (E fit)<em data-count></em></label></fieldset>
+   <button class="btn btn-action f-apply" type="submit">Apply filters</button>
+  </form>
+  <div>
+   <div class="rbar"><button class="btn btn-ghost f-toggle" type="button" aria-controls="filters" aria-expanded="false">Filters</button><span class="chips" data-chips></span><button class="clear" type="button" data-clear-filters>Clear all</button>
+    <label class="sort">Sort by <select name="sort" form="filters"><option value="best-selling">Best-selling</option><option value="price-asc">Price: low to high</option><option value="price-desc">Price: high to low</option><option value="newest">Newest</option><option value="top-rated">Top-rated</option></select></label></div>
+   <p class="empty" data-loading>Loading styles…</p>
+   <div class="grid" data-grid aria-live="polite"></div>
+   <p class="empty" data-no-results hidden>No styles match these filters. <button class="clear" type="button" data-clear-filters>Clear all</button></p>
+  </div>
+ </div>
+</section>
+</main>
+<!-- ===== SHARED FOOTER: identical on every page. Change it on all pages. ===== -->
+<footer class="ftr"><div class="wrap ftr-in">
+ <div><h2>Help</h2><ul><li><a href="help.html#contact">Contact us</a></li><li><a href="help.html#faq">FAQ</a></li><li><a href="help.html#delivery">Delivery</a></li><li><a href="help.html#returns">Returns</a></li><li><a href="help.html#size-guide">Size guide</a></li></ul></div>
+ <div><h2>Shop</h2><ul><li><a href="women.html">Women</a></li><li><a href="men.html">Men</a></li><li><a href="kids.html">Kids</a></li><li><a href="school-shoes.html">School shoes</a></li><li><a href="sale.html">Sale</a></li></ul></div>
+ <div><h2>Your account</h2><ul><li><a href="account.html">Sign in or register</a></li><li><a href="account.html#orders">Order history</a></li><li><a href="account.html#addresses">Saved addresses</a></li><li><a href="wishlist.html">Wishlist</a></li></ul></div>
+ <div><h2>About</h2><ul><li><a href="about.html">About this demo</a></li><li><a href="about.html#privacy">Privacy</a></li><li><a href="about.html#terms">Terms</a></li><li><a href="about.html#cookies">Cookies</a></li></ul></div>
+</div><div class="wrap ftr-b"><span>© 2026 Sole Society. Demo store, no real orders. Built by Prathamesh Shinde · <a href="https://prathameshshinde.com">prathameshshinde.com</a></span><span class="pay"><span class="pm">VISA</span><span class="pm">Mastercard</span><span class="pm">Apple Pay</span><span class="pm">Google Pay</span></span></div></footer>
+
+<div class="scrim" data-close-basket hidden></div>
+<aside class="drawer" id="basket" role="dialog" aria-modal="true" aria-labelledby="basket-title" hidden>
+ <form name="basket" action="checkout.html" method="get" data-basket-form>
+  <div class="dr-h"><h2 id="basket-title">Your basket (<span data-basket-count>0</span>)</h2><button type="button" data-close-basket aria-label="Close basket">×</button></div>
+  <div class="dr-free" data-free hidden>You've got free delivery.</div>
+  <div data-lines></div>
+  <p class="empty" data-empty>Your basket is empty.</p>
+  <div class="dr-f" data-totals>
+   <div class="tot"><span>Subtotal</span><b data-subtotal>€0.00</b></div>
+   <div class="tot"><span>Delivery</span><b data-delivery>Free</b></div>
+   <div class="tot big"><span>Total</span><b data-total>€0.00</b></div>
+   <button class="btn btn-action" type="submit">Checkout</button>
+   <a class="btn btn-ghost" href="basket.html">View basket</a>
+   <small>Test mode: no card is charged.</small>
+  </div>
+ </form>
+</aside>
+<!-- ===== /SHARED FOOTER ===== -->
+<script src="js/config.js?v=20261111c"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="js/products.js?v=20261111c"></script>
+<script src="js/main.js?v=20261111c"></script>
+</body>
+</html>

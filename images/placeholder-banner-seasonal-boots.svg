@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="540" viewBox="0 0 1200 540">
+<!-- PLACEHOLDER: replace with a real seasonal banner photo, 1200x540px. The headline sits bottom-left over it, so keep that area calm for contrast. -->
+<rect width="1200" height="540" fill="#DCEBEB"/>
+<rect x="8" y="8" width="1184" height="524" fill="none" stroke="#9FB2B3" stroke-width="2" stroke-dasharray="12 10"/>
+<text x="1172" y="52" text-anchor="end" font-family="system-ui,sans-serif" font-size="22" fill="#2F3D3E">Seasonal banner photo · placeholder · 1200×540</text>
+</svg>
