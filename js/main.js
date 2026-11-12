@@ -25,7 +25,12 @@
   var HEART = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>';
   var TRUCK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 6h11v10H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>';
   var RET = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 14 4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 0 10h-3"/></svg>';
-  var here = location.pathname.split("/").pop() || "index.html";
+  /* Page name, e.g. "account.html". Netlify serves pretty URLs (/account), so add .html back. */
+  function pageOf(path) {
+    var p = String(path || "").split(/[?#]/)[0].split("/").pop() || "index.html";
+    return p.indexOf(".") < 0 ? p + ".html" : p;
+  }
+  var here = pageOf(location.pathname);
 
   /* ---------- storage ---------- */
   var store = {
@@ -116,7 +121,21 @@
     var name = user && ((user.user_metadata && firstName(user.user_metadata.full_name)) || "Account");
     $$("[data-account-label]").forEach(function (el) { el.textContent = user ? name : "Sign in"; });
   }
-  $$(".dept a").forEach(function (a) { if (a.getAttribute("href") === here) a.setAttribute("aria-current", "page"); });
+  $$(".dept a").forEach(function (a) { if (pageOf(a.getAttribute("href")) === here) a.setAttribute("aria-current", "page"); });
+
+  /* ---------- sign-in required for basket, wishlist and checkout ---------- */
+  var REASONS = {
+    basket: "Please sign in to add items to your basket.",
+    wishlist: "Please sign in to save items to your wishlist.",
+    checkout: "Please sign in to check out."
+  };
+  function safeNext(n) { return /^[a-z0-9-]+\.html(\?[^\s#]*)?(#[\w-]*)?$/i.test(n || "") ? n : null; }
+  /* Returns true (and sends the visitor to sign in) when the shop database is on and nobody is signed in. */
+  function requireLogin(reason) {
+    if (!db || user) return false;
+    location.href = "account.html?reason=" + reason + "&next=" + encodeURIComponent(here + location.search + location.hash);
+    return true;
+  }
 
   /* ---------- search ---------- */
   var CATS = [
@@ -297,6 +316,7 @@
   document.addEventListener("click", function (e) {
     var b = e.target.closest("[data-wish]");
     if (!b) return;
+    if (requireLogin("wishlist")) return;
     var s = b.dataset.wish, i = wish.indexOf(s);
     if (i > -1) wish.splice(i, 1); else wish.unshift(s);
     wishChanged();
@@ -322,6 +342,25 @@
       var n = PRODUCTS.filter(tests[el.dataset.catCount]).length;
       el.textContent = n + (n === 1 ? " style" : " styles");
     });
+    /* a photo on each category tile: a preferred style if it's in the catalogue, else the first match */
+    var PICK = { women: "burren-leather-chelsea-boot", men: "linden-co-leather-oxford", kids: "little-dash-light-up-runner",
+      school: "little-dash-touch-fasten-school-shoe", boots: "burren-suede-chelsea-boot", socks: "kettle-ribbed-socks-3-pack" };
+    $$("[data-cat-img]").forEach(function (img) {
+      var k = img.dataset.catImg, p = (BY[PICK[k]] && tests[k](BY[PICK[k]])) ? BY[PICK[k]] : PRODUCTS.filter(tests[k])[0];
+      if (p) { img.src = p.img; img.hidden = false; }
+    });
+    /* product rows */
+    var rows = {
+      top: PRODUCTS.filter(function (p) { return p.rating; }).sort(function (a, b) { return b.rating - a.rating || (b.reviews || 0) - (a.reviews || 0); }),
+      sale: PRODUCTS.filter(function (p) { return p.was; }),
+      "new": PRODUCTS.filter(function (p) { return p.badge === "new"; })
+    };
+    $$("[data-home-row]").forEach(function (sec) {
+      var list = (rows[sec.dataset.homeRow] || []).slice(0, 4);
+      $("[data-row-grid]", sec).innerHTML = list.map(cardHTML).join("");
+      sec.hidden = list.length === 0;
+    });
+    syncWishButtons();
   }
 
   /* ---------- product page (product.html?p=slug) ---------- */
@@ -407,6 +446,7 @@
     if (sizes.length === 1) sizes[0].checked = true;
     buy.addEventListener("submit", function (e) {
       e.preventDefault();
+      if (requireLogin("basket")) return;
       var size = $('input[name="size"]:checked', buy);
       if (!size) { msg.hidden = false; if (sizes[0]) sizes[0].focus(); return; }
       var colour = $('input[name="colour"]:checked', buy);
@@ -555,6 +595,7 @@
   function initCheckout() {
     var co = $("[data-checkout-form]");
     if (!co) return;
+    if (requireLogin("checkout")) return;
     var msg = $("[data-checkout-msg]"), btn = $('button[type="submit"]', co);
     show($("[data-save-address]"), !!user);
     if (db && user) {
@@ -611,6 +652,13 @@
     show(inn, !!user && !recovering);
     /* sign-in, reset and new-password forms are a centred card; the signed-in account view is full width */
     var pageEl = $("[data-account-page]"); if (pageEl) pageEl.classList.toggle("auth-page", !user || recovering);
+    var params = new URLSearchParams(location.search);
+    if (!user && !recovering) {
+      var why = REASONS[params.get("reason")];
+      if (why && !$("[data-auth-msg]").textContent) authMsg(why, true);
+      $$(".auth-switch a").forEach(function (a) { if (location.search) a.setAttribute("href", "register.html" + location.search); });
+    }
+    if (user && !recovering && safeNext(params.get("next"))) { location.replace(safeNext(params.get("next"))); return; }
     if (!user || recovering) return;
     $("[data-account-email]").textContent = user.email;
     db.from("orders").select("order_number, created_at, total, delivery_fee, status, order_items(product_name, colour, size, width, qty, unit_price)")
@@ -678,7 +726,11 @@
     });
     document.addEventListener("click", function (e) {
       if (e.target.closest("[data-sign-out]")) {
-        db.auth.signOut().then(function () { wish = []; store.del("wishlist"); wishChanged(); authMsg("You're signed out."); });
+        db.auth.signOut().then(function () {
+          wish = []; store.del("wishlist"); wishChanged();
+          basket = []; saveBasket();
+          authMsg("You're signed out.");
+        });
       }
       var ra = e.target.closest("[data-remove-address]");
       if (ra) db.from("addresses").delete().eq("id", ra.dataset.removeAddress).then(function (res) { if (res.error) authMsg(friendly(res.error), true); else loadAddresses(); });
@@ -703,7 +755,7 @@
         options: { data: { full_name: rg.elements.full_name.value.trim() }, emailRedirectTo: new URL("account.html", location.href).href } }).then(function (res) {
         busy(rg, false);
         if (res.error) return authMsg(friendly(res.error), true);
-        if (res.data.session) { location.href = "account.html"; return; }
+        if (res.data.session) { location.href = safeNext(new URLSearchParams(location.search).get("next")) || "account.html"; return; }
         rg.reset();
         show($("[data-register-wrap]"), false);
         authMsg("Check your email: we've sent a link to confirm your account. After confirming, you'll be signed in.");

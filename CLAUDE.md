@@ -5,10 +5,11 @@ Supabase (Postgres), loaded in the browser via the supabase-js CDN build (pinned
 `index.html`; deploys by uploading the folder. Relative paths only.
 `design-system/`, `supabase/`, `.claude/`, `.mcp.json` and `CLAUDE.md` don't need uploading
 (they're tooling and notes, not part of the site).
-Code: GitHub, private repo PrathameshS1999/sole-society (branch main). Hosting: Netlify,
+Code: GitHub, private repo PrathameshS1999/sole-society (branch main). Hosting: Netlify (https://sole-society-shoes.netlify.app),
 deploying that repo on every push (netlify.toml: no build, publish the repo root, and
 404s for design-system/, supabase/, notes and dotfiles). To publish a change: commit and
-`git push`. `sole-society-netlify.zip` (git-ignored) is only for manual Netlify Drop uploads.
+`git push`. Netlify rewrites links to pretty URLs (/account), so main.js
+normalises page names with `pageOf()`; keep comparisons going through it. `sole-society-netlify.zip` (git-ignored) is only for manual Netlify Drop uploads.
 After a new live URL, add it in Supabase → Authentication → URL Configuration.
 
 ## Source of truth
@@ -29,7 +30,8 @@ add sections it doesn't show.
 - Tight: 4 product columns on desktop, 2 on phones. Breakpoints are 900px and 640px.
 
 ## Pages (19)
-- `index.html`: home (banner and category tiles; tile counts come from the data)
+- `index.html`: home: banner (photo: product-northpaw-lined-winter-boot-1.jpg), category tiles
+  with a product photo and live counts, then rows filled from the data: Top rated, On sale, New in.
 - Listings: `women.html`, `men.html`, `kids.html`, `school-shoes.html`, `boots.html`,
   `trainers.html`, `socks.html`, `sale.html`, `womens-boots.html`, `search.html` (`?q=`).
   `main.js` renders the cards and brand filter from the catalogue, then filters, sorts and
@@ -59,7 +61,9 @@ The current department link is highlighted by JS (`aria-current`), so the markup
   If the database is unset or unreachable, `js/products.js` (same shape) is used instead.
 - Accounts: Supabase Auth (email + password, confirm email, reset). `profiles` row made by trigger.
 - Wishlist: localStorage, synced to `wishlist_items` when signed in (cleared on sign-out).
-- Basket: localStorage only, until checkout.
+- Sign-in is required (when the database is connected) to add to the basket or wishlist and to
+  check out: `requireLogin()` sends people to `account.html?reason=…&next=…` and back afterwards.
+- Basket: localStorage only, until checkout; cleared on sign-out with the wishlist.
 - Orders: only via `rpc('place_order')`, which re-prices everything server-side.
   Guests can check out; signed-in customers see `orders` + `order_items` and `addresses`.
 - Contact form inserts into `contact_messages` (insert-only for the public).

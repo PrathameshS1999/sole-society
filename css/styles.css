@@ -85,7 +85,7 @@ span.act{cursor:default}
 
 /* ===== Home ===== */
 .home{padding-top:var(--sec-y);display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,2fr);gap:var(--gap)}
-.banner{position:relative;display:grid;align-content:end;gap:8px;min-height:var(--banner-h);padding:var(--card-pad);background:var(--banner-bg) url("../images/placeholder-banner-seasonal-boots.svg") center/cover no-repeat;color:var(--banner-ink);border-radius:var(--r-card);overflow:hidden}
+.banner{position:relative;display:grid;align-content:end;gap:8px;min-height:var(--banner-h);padding:var(--card-pad);background:var(--banner-bg);color:var(--banner-ink);border-radius:var(--r-card);overflow:hidden}
 .banner h1,.banner h2{margin:0;font-family:var(--f-display);font-weight:var(--w-display);font-size:var(--fs-h2);line-height:1.1}
 .banner p{margin:0;color:var(--banner-muted);font-size:var(--fs-sm)}
 .cats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap)}
@@ -363,3 +363,20 @@ a.c-name:hover{text-decoration:underline}
 .auth-page .auth{justify-content:center}
 .auth-page .auth-one{margin-left:auto;margin-right:auto}
 .auth-page .crumbs{text-align:center}
+
+/* ===== Home: banner photo, tile photos, product rows ===== */
+.banner{grid-template-columns:minmax(0,1fr)}
+.banner-img{position:absolute;right:0;bottom:0;height:100%;width:58%;object-fit:cover;object-position:center bottom;mix-blend-mode:multiply;pointer-events:none;-webkit-mask-image:linear-gradient(to right,transparent,#000 35%);mask-image:linear-gradient(to right,transparent,#000 35%)}
+.banner-txt{position:relative;display:grid;gap:8px;max-width:56%}
+.cat{position:relative;overflow:hidden}
+.cat span,.cat b{position:relative;z-index:1;max-width:60%}
+.cat-img{position:absolute;right:8px;bottom:8px;width:44%;max-width:120px;aspect-ratio:1/1;object-fit:cover;border-radius:var(--r-tile);mix-blend-mode:multiply}
+.home-row{padding-top:var(--gap-xl)}
+.row-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:var(--gap)}
+.row-h h2{margin:0;font-family:var(--f-display);font-weight:var(--w-display);font-size:var(--fs-h2);line-height:1.1}
+.row-h .lnk{font-size:var(--fs-sm);font-weight:600;color:var(--link);text-decoration:underline;text-underline-offset:2px}
+@media (max-width:640px){
+  .banner-txt{max-width:62%}
+  .banner-img{width:52%}
+  .cat-img{width:40%}
+}

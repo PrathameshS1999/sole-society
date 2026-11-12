@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=20261111c">
+<link rel="stylesheet" href="css/styles.css?v=20261112a">
 </head>
 <body>
 <!-- ===== SHARED NAV: identical on every page. Change it on all pages. ===== -->
@@ -33,8 +33,20 @@
 <!-- ===== /SHARED NAV ===== -->
 <main id="main">
 <section class="wrap home" aria-label="Shop by category">
- <div class="banner"><h1>Boots for wet weather</h1><p>Waterproof boots for every age, from €39.95.</p><div><a class="btn btn-light" href="boots.html">Shop boots</a></div></div>
- <div class="cats"><a class="cat" href="women.html"><span data-cat-count="women">&nbsp;</span><b>Women</b></a><a class="cat" href="men.html"><span data-cat-count="men">&nbsp;</span><b>Men</b></a><a class="cat" href="kids.html"><span data-cat-count="kids">&nbsp;</span><b>Kids</b></a><a class="cat" href="school-shoes.html"><span data-cat-count="school">&nbsp;</span><b>School shoes</b></a><a class="cat" href="boots.html"><span data-cat-count="boots">&nbsp;</span><b>Boots</b></a><a class="cat" href="socks.html"><span data-cat-count="socks">&nbsp;</span><b>Socks</b></a></div>
+ <div class="banner"><img class="banner-img" src="images/product-northpaw-lined-winter-boot-1.jpg" alt="" width="800" height="800"><div class="banner-txt"><h1>Boots for wet weather</h1><p>Waterproof boots for every age, from €39.95.</p><div><a class="btn btn-light" href="boots.html">Shop boots</a></div></div></div>
+ <div class="cats"><a class="cat" href="women.html"><span data-cat-count="women">&nbsp;</span><b>Women</b><img class="cat-img" data-cat-img="women" alt="" width="160" height="160" hidden></a><a class="cat" href="men.html"><span data-cat-count="men">&nbsp;</span><b>Men</b><img class="cat-img" data-cat-img="men" alt="" width="160" height="160" hidden></a><a class="cat" href="kids.html"><span data-cat-count="kids">&nbsp;</span><b>Kids</b><img class="cat-img" data-cat-img="kids" alt="" width="160" height="160" hidden></a><a class="cat" href="school-shoes.html"><span data-cat-count="school">&nbsp;</span><b>School shoes</b><img class="cat-img" data-cat-img="school" alt="" width="160" height="160" hidden></a><a class="cat" href="boots.html"><span data-cat-count="boots">&nbsp;</span><b>Boots</b><img class="cat-img" data-cat-img="boots" alt="" width="160" height="160" hidden></a><a class="cat" href="socks.html"><span data-cat-count="socks">&nbsp;</span><b>Socks</b><img class="cat-img" data-cat-img="socks" alt="" width="160" height="160" hidden></a></div>
+</section>
+<section class="wrap home-row" data-home-row="top" aria-labelledby="row-top" hidden>
+ <div class="row-h"><h2 id="row-top">Top rated</h2></div>
+ <div class="grid" data-row-grid></div>
+</section>
+<section class="wrap home-row" data-home-row="sale" aria-labelledby="row-sale" hidden>
+ <div class="row-h"><h2 id="row-sale">On sale</h2><a class="lnk" href="sale.html">Shop the sale</a></div>
+ <div class="grid" data-row-grid></div>
+</section>
+<section class="wrap home-row" data-home-row="new" aria-labelledby="row-new" hidden>
+ <div class="row-h"><h2 id="row-new">New in</h2></div>
+ <div class="grid" data-row-grid></div>
 </section>
 </main>
 <!-- ===== SHARED FOOTER: identical on every page. Change it on all pages. ===== -->
@@ -63,9 +75,9 @@
  </form>
 </aside>
 <!-- ===== /SHARED FOOTER ===== -->
-<script src="js/config.js?v=20261111c"></script>
+<script src="js/config.js?v=20261112a"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
-<script src="js/products.js?v=20261111c"></script>
-<script src="js/main.js?v=20261111c"></script>
+<script src="js/products.js?v=20261112a"></script>
+<script src="js/main.js?v=20261112a"></script>
 </body>
 </html>
